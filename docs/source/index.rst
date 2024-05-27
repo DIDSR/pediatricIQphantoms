@@ -16,9 +16,9 @@ Introduction
     :alt: Zenodo Data Access
     :target: https://zenodo.org/doi/10.5281/zenodo.10064035
 
-.. |tests| image:: https://github.com/bnel1201/pediatricIQphantoms/actions/workflows/python-package-conda.yml/badge.svg?branch=main
+.. |tests| image:: https://github.com/brandonjnelsonFDA/pediatricIQphantoms/actions/workflows/python-package-conda.yml/badge.svg?branch=main
     :alt: Package Build and Testing Status
-    :target: https://github.com/bnel1201/pediatricIQphantoms
+    :target: https://github.com/brandonjnelsonFDA/pediatricIQphantoms
 
 **Digital Pediatric Image Quality Phantoms for Evaluating CT Denoising Methods** are a set of digital phantoms and simulation methods for generating CT images of standard image quality (IQ) phantoms designed to match the effective diameter of pediatric patients ranging from newborns to teenagers. This repository has `tools <make_phantoms.py>`_ for generating `MITA-LCD phantom <https://www.phantomlab.com/catphan-mita>`_ and a multi-contrast sensitometry module similar to the CTP404 module of the `Catphan 600 phantom <link here>`_. Functions are also provided to simulate different acquisition parameters and CT scanner models.
 
@@ -41,17 +41,17 @@ Installation
 
 .. code-block:: shell
 
-        git clone https://github.com/bnel1201/pediatricIQphantoms
+        git clone https://github.com/brandonjnelsonFDA/pediatricIQphantoms
         cd pediatricIQphantoms
         conda env create --file environment.yml
         conda activate pediatricIQphantoms
 
 The code block above does the following in 4 lines:
 
-1. Git clones the `pediatricIQphantoms <https://github.com/bnel1201/pediatricIQphantoms>`_ repository
+1. Git clones the `pediatricIQphantoms <https://github.com/brandonjnelsonFDA/pediatricIQphantoms>`_ repository
 2. Changes the active directory to the repo
 3. Creates a new conda environment called "pediatricIQphantoms"
-4. Activates the conda environment. This makes the phantom creation library `pediatricIQphantoms` accessible in scripts (see `examples <https://github.com/bnel1201/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_) and via command line calls (see `demo 01 <https://github.com/bnel1201/pediatricIQphantoms/blob/main/demo_01_phantom_creation.sh>`_ and `demo 02 <https://github.com/bnel1201/pediatricIQphantoms/blob/main/demo_02_multiple_recon_kernels.sh>`_).
+4. Activates the conda environment. This makes the phantom creation library `pediatricIQphantoms` accessible in scripts (see `examples <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_) and via command line calls (see `demo 01 <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/demo_01_phantom_creation.sh>`_ and `demo 02 <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/demo_02_multiple_recon_kernels.sh>`_).
 
 **Test the Installation**
 
@@ -59,11 +59,11 @@ The code block above does the following in 4 lines:
 
         pytest
 
-This runs the `unit tests <https://github.com/bnel1201/pediatricIQphantoms/tree/main/tests>`_ to verify that installation was successful.
+This runs the `unit tests <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/tree/main/tests>`_ to verify that installation was successful.
 
 **Running Notebooks*
 
-To run the `computational notebooks <https://github.com/bnel1201/pediatricIQphantoms/tree/main/notebooks>`_ you will need to have `jupyter <https://jupyter.org/>`_ installed
+To run the `computational notebooks <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/tree/main/notebooks>`_ you will need to have `jupyter <https://jupyter.org/>`_ installed
 
 .. code-block:: shell
 
@@ -74,9 +74,9 @@ Users
 
 Check out the :doc:`usage` section for detailed information on customizing dataset running_simulations.
 
-`Computational notebooks <https://github.com/bnel1201/pediatricIQphantoms/tree/main/notebooks>`_ have also been provided to demonstrate how to use `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_ including:
-  - `running CT simulations <https://github.com/bnel1201/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
-  - `using the dataset to assess denoising performance in pediatric subgroups <https://github.com/bnel1201/pediatricIQphantoms/blob/main/notebooks/01_pediatric_denoising_evaluation.ipynb>`_
+`Computational notebooks <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/tree/main/notebooks>`_ have also been provided to demonstrate how to use `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_ including:
+  - `running CT simulations <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
+  - `using the dataset to assess denoising performance in pediatric subgroups <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/01_pediatric_denoising_evaluation.ipynb>`_
 
 Contents
 --------

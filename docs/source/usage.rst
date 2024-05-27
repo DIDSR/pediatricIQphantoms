@@ -19,15 +19,15 @@ Examples
 
 The quickest and simplest way to start generating new datasets with different parameters is using the command line interface tool `make_phantoms`  and modifying the provided configuration toml files. The examples below illustrate different scenarios that can be experimented with using the command line tool and config files.
 
-- `example_01_multiple_recon_kernels.sh <https://github.com/bnel1201/pediatricIQphantoms/blob/main/demo_01_phantom_creation.sh>`_
+- `example_01_multiple_recon_kernels.sh <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/demo_01_phantom_creation.sh>`_
 
-The purpose of this example is to illustrate how to batch several simulations into a single config .toml file and how to update parameters while keeping everything else the same. This example is available in the `examples folder <https://github.com/bnel1201/pediatricIQphantoms/tree/main/examples>`_ or alternatively can be run using the following terminal command:
+The purpose of this example is to illustrate how to batch several simulations into a single config .toml file and how to update parameters while keeping everything else the same. This example is available in the `examples folder <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/tree/main/examples>`_ or alternatively can be run using the following terminal command:
 
 .. code-block:: shell
 
     python make_phantoms.py configs/multiple_recon_kernels.toml
 
-The key difference in this config file compared to the `default <https://github.com/bnel1201/pediatricIQphantoms/blob/main/configs/defaults.toml>`_ or `test <https://github.com/bnel1201/pediatricIQphantoms/blob/main/configs/test.toml>`_ configs is that multiple simulations are batched in a single config file by repeating the **[[simulation]]** toml header for each new simulation to add to the batch. Note in toml this is referred to as a `nested table <https://toml.io/en/v1.0.0#array-of-tables>`_.
+The key difference in this config file compared to the `default <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/configs/defaults.toml>`_ or `test <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/configs/test.toml>`_ configs is that multiple simulations are batched in a single config file by repeating the **[[simulation]]** toml header for each new simulation to add to the batch. Note in toml this is referred to as a `nested table <https://toml.io/en/v1.0.0#array-of-tables>`_.
 
 .. code-block:: toml
 
@@ -183,7 +183,7 @@ Finally by the fourth we repeat the previous simulation but with the second kern
      'offset': 0,
      **'fbp_kernel': 'hanning,0.85'**}
 
-This is done in parsing the config files using the python `dict update method <https://docs.python.org/3/library/stdtypes.html?highlight=dict%20update#dict.update>`_ https://github.com/bnel1201/pediatricIQphantoms/blob/62a45930053502e8e9982af4b521fdd4eee314ed/make_phantoms.py#L56
+This is done in parsing the config files using the python `dict update method <https://docs.python.org/3/library/stdtypes.html?highlight=dict%20update#dict.update>`_ https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/62a45930053502e8e9982af4b521fdd4eee314ed/make_phantoms.py#L56
 
 - Reproducing the `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_
 
@@ -193,12 +193,12 @@ This is done in parsing the config files using the python `dict update method <h
 
     make_phantoms configs/pediatricIQphantoms.toml
 
-Note that this example of the executable `make_phantoms` that is installed and added to your python after installing the `pediatricIQphantoms <https://github.com/bnel1201/pediatricIQphantoms>`_ python package (see `install instructions <https://pediatriciqphantoms.readthedocs.io/en/latest/index.html>`_ for details)
+Note that this example of the executable `make_phantoms` that is installed and added to your python after installing the `pediatricIQphantoms <https://github.com/brandonjnelsonFDA/pediatricIQphantoms>`_ python package (see `install instructions <https://pediatriciqphantoms.readthedocs.io/en/latest/index.html>`_ for details)
 
 Viewing images
 --------------
 
-The outputs of the simulation are `DICOM <https://en.wikipedia.org/wiki/DICOM>`_ CT images. The notebook `01_viewing_images.ipynb <https://github.com/bnel1201/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_ discusses ways to view and interact with DICOM images produced in `00_running_simulations.ipynb <https://github.com/bnel1201/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
+The outputs of the simulation are `DICOM <https://en.wikipedia.org/wiki/DICOM>`_ CT images. The notebook `01_viewing_images.ipynb <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_ discusses ways to view and interact with DICOM images produced in `00_running_simulations.ipynb <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
 
 `run_batch_sim <https://pediatriciqphantoms.readthedocs.io/en/latest/api.html#pediatricIQphantoms.run_batch_sim>`_ outputs simulated datasets in the following directory structure:
 
@@ -251,7 +251,7 @@ Conclusions
 
 This section introduced several ways to interact with pediatricIQphantom simulation tools and view the DICOM images produced by `run_batch_sim <https://pediatriciqphantoms.readthedocs.io/en/latest/api.html#pediatricIQphantoms.run_batch_sim>`_. 
 
-**Next** see the notebooks for practical examples `00_running_simulations.ipynb <https://github.com/bnel1201/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
+**Next** see the notebooks for practical examples `00_running_simulations.ipynb <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
 
 References
 ----------
