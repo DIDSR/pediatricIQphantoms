@@ -29,33 +29,10 @@ The purpose of this example is to illustrate how to batch several simulations in
 
 The key difference in this config file compared to the `default <https://github.com/DIDSR/pediatricIQphantoms/blob/main/configs/defaults.toml>`_ or `test <https://github.com/DIDSR/pediatricIQphantoms/blob/main/configs/test.toml>`_ configs is that multiple simulations are batched in a single config file by repeating the **[[simulation]]** toml header for each new simulation to add to the batch. Note in toml this is referred to as a `nested table <https://toml.io/en/v1.0.0#array-of-tables>`_.
 
-.. code-block:: toml
+.. literalinclude:: configs/multiple_recon_kernels.toml
+    :language: TOML
 
-    [[simulation]]
-
-    model = ['CCT189'] 
-    diameter = [112, 131, 151, 185, 200, 292, 350] 
-
-    ...
-
-    fbp_kernel = 'hanning,2.05'
-
-    [[simulation]]
-
-    fbp_kernel = 'hanning,0.85'
-
-    [[simulation]]
-
-    model = ['CTP404']
-    dose_level = [1.0]
-    fbp_kernel = 'hanning,2.05'
-
-    [[simulation]]
-
-    fbp_kernel = 'hanning,0.85'
-   ...
-
-Here multiple simulations are run, note the repeated header blocks **[[simulation]]** indicate the start of a new experiment. Any parameters set in the first simulation, (the first **[[simulation]]** above), override the `default parameters <defaults.toml>`_. In each subsequent **[[simulation]]** an new provided settings will update the scan settings, otherwise all other parameters will carry over from the previous simulation.
+Here multiple simulations are run, note the repeated header blocks **[[simulation]]** indicate the start of a new experiment. Any parameters set in the first simulation, (the first **[[simulation]]** above), override the `default parameters <configs/defaults.toml>`_. In each subsequent **[[simulation]]** an new provided settings will update the scan settings, otherwise all other parameters will carry over from the previous simulation.
 
 For example:
 
@@ -64,7 +41,6 @@ For example:
     {'image_directory': 'results/multiple_recon_kernels',
     'model': ['CCT189'],
     'diameter': [112, 131, 151, 185, 200, 292, 350],
-    'reference_diameter': 200,
     'framework': 'MIRT',
     'nsims': 200,
     'nangles': 1160,
@@ -75,12 +51,10 @@ For example:
     'sid': 595,
     'sdd': 1085.6,
     'ndetectors': 880,
-    'na': 1160,
     'detector_size': 1,
     'detector_offset': 1.25,
     'fov': 340,
-    'image_matrix2,
-    'offset': 0,
+    'matrix_size': 512,
     'fbp_kernel': 'hanning,2.05'}
 
 In the second simulation in the config file only the `fbp_kernel` is updated 
@@ -93,30 +67,6 @@ In the second simulation in the config file only the `fbp_kernel` is updated
 
 This results in only updating the `fbp_kernel` element leaving all other elements the same from the previous simulation.
 
-.. code-block:: python
-
-    {'image_directory': 'results/multiple_recon_kernels',
-     'model': ['CCT189'],
-     'diameter': [112, 131, 151, 185, 200, 292, 350],
-     'reference_diameter': 200,
-     'framework': 'MIRT',
-     'nsims': 200,
-     'nangles': 1160,
-     'aec_on': True,
-     'add_noise': True,
-     'full_dose': 300000.0, 
-     'dose_level': [0.1, 0.25, 1.0],
-     'sid': 595,
-     'sdd': 1085.6,
-     'ndetectors': 880,
-     'na': 1160,
-     'detector_size': 1,
-     'detector_offset': 1.25,
-     'fov': 340,
-     'matrix_size': 512,
-     'offset': 0,
-     **'fbp_kernel': 'hanning,0.85'**}
-
 Then by third simulation a new phantom is introduced, CTP404, and we wish to only image it at full dose and with the first of the two kernels being investigated (sharp and smooth):
 
 .. code-block:: toml
@@ -127,30 +77,6 @@ Then by third simulation a new phantom is introduced, CTP404, and we wish to onl
     dose_level = [1.0]
     fbp_kernel = 'hanning,2.05'
 
-.. code-block:: python
-
-    {'image_directory': 'results/multiple_recon_kernels',
-     **'model': ['CTP404']**,
-     'diameter': [112, 131, 151, 185, 200, 292, 350],
-     'reference_diameter': 200,
-     'framework': 'MIRT',
-     'nsims': 10,
-     'nangles': 1160,
-     'aec_on': True,
-     'add_noise': True,
-     'full_dose': 3000000.0,
-     **'dose_level': [1.0]**,
-     'sid': 595,
-     'sdd': 1085.6,
-     'ndetectors': 880,
-     'na': 1160,
-     'detector_size': 1,
-     'detector_offset': 1.25,
-     'fov': 340,
-     'matrix_size': 512,
-     'offset': 0,
-     'fbp_kernel': 'hanning,2.05'}
-
 Finally by the fourth we repeat the previous simulation but with the second kernel, the smooth kernel
 
 .. code-block:: toml
@@ -158,30 +84,6 @@ Finally by the fourth we repeat the previous simulation but with the second kern
     [[simulation]]
 
     fbp_kernel = 'hanning,0.85'
-
-.. code-block:: python
-
-    {'image_directory': 'results/multiple_recon_kernels',
-     **'model': ['CTP404']**,
-     'diameter': [112, 131, 151, 185, 200, 292, 350],
-     'reference_diameter': 200,
-     'framework': 'MIRT',
-     'nsims': 10,
-     'nangles': 1160,
-     'aec_on': True,
-     'add_noise': True,
-     'full_dose': 3000000.0,
-     'dose_level': [1.0],
-     'sid': 595,
-     'sdd': 1085.6,
-     'ndetectors': 880,
-     'na': 1160,
-     'detector_size': 1,
-     'image_matrix_offset_offset': 1.25,
-     'fov': 340,
-     'matrix_size': 512,
-     'offset': 0,
-     **'fbp_kernel': 'hanning,0.85'**}
 
 This is done in parsing the config files using the python `dict update method <https://docs.python.org/3/library/stdtypes.html?highlight=dict%20update#dict.update>`_ https://github.com/DIDSR/pediatricIQphantoms/blob/62a45930053502e8e9982af4b521fdd4eee314ed/make_phantoms.py#L56
 
