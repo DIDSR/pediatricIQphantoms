@@ -16,6 +16,6 @@ dependencies:
   - ipykernel
   - pip
   - pip:
-    - "git+https://github.com/brandonjnelsonFDA/pediatricIQphantoms"
+    - "git+https://github.com/DIDSR/pediatricIQphantoms"
     - sphinxcontrib-svg2pdfconverter
     - nbsphinx

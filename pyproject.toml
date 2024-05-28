@@ -22,8 +22,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/brandonjnelsonFDA/pediatricIQphantoms"
-Issues = "https://github.com/brandonjnelsonFDA/pediatricIQphantoms/issues"
+Homepage = "https://github.com/DIDSR/pediatricIQphantoms"
+Issues = "https://github.com/DIDSR/pediatricIQphantoms/issues"
 
 [project.scripts]
 make_phantoms = "pediatricIQphantoms.make_phantoms:main"

@@ -19,10 +19,10 @@ pediatricIQphantoms
     :scale: 100%
     :target: https://pediatriciqphantoms.readthedocs.io/en/latest/
 
-.. |tests| image:: https://github.com/brandonjnelsonFDA/pediatricIQphantoms/actions/workflows/python-package-conda.yml/badge.svg?branch=main
+.. |tests| image:: https://github.com/DIDSR/pediatricIQphantoms/actions/workflows/python-package-conda.yml/badge.svg?branch=main
     :alt: Package Build and Testing Status
     :scale: 100%
-    :target: https://github.com/brandonjnelsonFDA/pediatricIQphantoms/actions/workflows/python-package-conda.yml
+    :target: https://github.com/DIDSR/pediatricIQphantoms/actions/workflows/python-package-conda.yml
 
 Features
 --------
@@ -34,13 +34,13 @@ Features
 In addition, this repo contains examples of measurements using these digital image quality phantoms
 
 - `phantom creation and simulation <demo_01_phantom_creation.sh>`_, including different scanner configurations and acquisition protocols
-- examples of how to `view the dataset <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_ and `evaluate pediatric generalizability of denoisers <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_ are shown in the notebooks directory
+- examples of how to `view the dataset <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_ and `evaluate pediatric generalizability of denoisers <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_ are shown in the notebooks directory
 
 .. image:: pediatric_subgroup_performance.png
         :width: 600
         :align: center
 
-Example from the `uniform phantom denoising performance assessment notebook <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_ demonstrating the pediatric subgroup denoising performance of a `RED-CNN <https://ieeexplore.ieee.org/document/7947200/>`_ image-based deep learning denoiser using the `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_ 
+Example from the `uniform phantom denoising performance assessment notebook <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_ demonstrating the pediatric subgroup denoising performance of a `RED-CNN <https://ieeexplore.ieee.org/document/7947200/>`_ image-based deep learning denoiser using the `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_ 
 
 Start Here
 ----------
@@ -60,14 +60,14 @@ Start Here
 
 .. code-block:: shell
 
-        git clone https://github.com/brandonjnelsonFDA/pediatricIQphantoms
+        git clone https://github.com/DIDSR/pediatricIQphantoms
         cd pediatricIQphantoms
         conda env create --file environment.yml
         conda activate pediatricIQphantoms
 
 The code block above does the following in 4 lines:
 
-1. Git clones the `pediatricIQphantoms <https://github.com/brandonjnelsonFDA/pediatricIQphantoms>`_ repository
+1. Git clones the `pediatricIQphantoms <https://github.com/DIDSR/pediatricIQphantoms>`_ repository
 
 2. Changes the active directory to the repo
 
@@ -81,11 +81,11 @@ The code block above does the following in 4 lines:
 
         pytest
 
-This runs the `unit tests <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/tree/main/tests>`_ to verify that installation was successful.
+This runs the `unit tests <https://github.com/DIDSR/pediatricIQphantoms/tree/main/tests>`_ to verify that installation was successful.
 
 **Running Notebooks**
 
-To run the `computational notebooks <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/tree/main/notebooks>`_ you will need to have `jupyter <https://jupyter.org/>`_ installed
+To run the `computational notebooks <https://github.com/DIDSR/pediatricIQphantoms/tree/main/notebooks>`_ you will need to have `jupyter <https://jupyter.org/>`_ installed
 
 .. code-block:: shell
 
@@ -100,16 +100,16 @@ Several examples are provided on how to use these functions:
 
 - Check out the :doc:`usage` section for detailed information on customizing dataset running_simulations.
 - See the `tests directory <tests>`_ for simple script examples
-- `Computational notebooks <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/tree/main/notebooks>`_ have also been provided to demonstrate how to use `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_ including:
+- `Computational notebooks <https://github.com/DIDSR/pediatricIQphantoms/tree/main/notebooks>`_ have also been provided to demonstrate how to use `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_ including:
 
-  - `running CT simulations <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
-  - `options for viewing the dataset images <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_
-  - `using the dataset to assess denoising performance in pediatric subgroups <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_
+  - `running CT simulations <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
+  - `options for viewing the dataset images <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_
+  - `using the dataset to assess denoising performance in pediatric subgroups <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_
 
 Contribute
 ----------
 
-`Issue Tracker <https://github.com/brandonjnelsonFDA/pediatricIQphantoms/issues>`_ | `Source Code <https://github.com/brandonjnelsonFDA/pediatricIQphantoms>`_ | `Contributing Guide <https://pediatriciqphantoms.readthedocs.io/en/latest/contributing.html>`_
+`Issue Tracker <https://github.com/DIDSR/pediatricIQphantoms/issues>`_ | `Source Code <https://github.com/DIDSR/pediatricIQphantoms>`_ | `Contributing Guide <https://pediatriciqphantoms.readthedocs.io/en/latest/contributing.html>`_
 
 Support
 -------
