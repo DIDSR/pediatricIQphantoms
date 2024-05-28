@@ -16,7 +16,7 @@ class CTobj():
     A class to hold CT simulation data and run simulations
 
     :param phantom: phantom object to be scanned, options include ['CCT189', 'CTP404']
-    :param patient_diameter: Optional, effective diameter in mm. See AAPM TG220 for more details <https://www.aapm.org/pubs/reports/detail.asp?docid=146>
+    :param patient_diameter: Optional, effective diameter in mm. See `AAPM TG220 <https://www.aapm.org/pubs/reports/detail.asp?docid=146>`_ for more details.
     :param reference_diameter: Optional, reference effective diameter in mm for computing automatic exposure control (aec) noise index. For example if a 200 mm reference phantom has a noise level of 24 HU at I0=3e5, smaller phantoms will scale I0 to match that noise level. Note this only applies if 'aec_on`=True.
     :param I0: Optional float, fluence at the detector in the projection data for determining quantum noise default 3e5 units of photons.
     :param ndetectors: Optional int, number of detector columns
