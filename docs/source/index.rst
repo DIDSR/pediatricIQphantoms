@@ -87,7 +87,7 @@ Contents
    usage
    notebooks/00_running_simulations
    notebooks/02_pediatric_denoising_evaluation
-   api
+   function_reference
    contributing
    faq
 

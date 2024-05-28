@@ -327,7 +327,7 @@ def run_batch_sim(image_directory: str, model=['MITA-LCD'], diameter=[200], full
     :param dose_level: Optional list, units of photons
     :param verbose: Optional bool, whether to print update information
 
-    See `CTobj` for remaining **kwargs keyword arguments
+    See `CTobj` for remaining keyword arguments
     """
     image_directory = Path(os.path.abspath(image_directory))
     print(image_directory)

@@ -1,5 +1,5 @@
-API
-===
+Function Reference
+==================
 
 Reference page
 

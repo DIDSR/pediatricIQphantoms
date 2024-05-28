@@ -102,7 +102,7 @@ Viewing images
 
 The outputs of the simulation are `DICOM <https://en.wikipedia.org/wiki/DICOM>`_ CT images. The notebook `01_viewing_images.ipynb <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_ discusses ways to view and interact with DICOM images produced in `00_running_simulations.ipynb <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
 
-`run_batch_sim <https://pediatriciqphantoms.readthedocs.io/en/latest/api.html#pediatricIQphantoms.run_batch_sim>`_ outputs simulated datasets in the following directory structure:
+`run_batch_sim <https://pediatriciqphantoms.readthedocs.io/en/latest/function_reference.html#pediatricIQphantoms.run_batch_sim>`_ outputs simulated datasets in the following directory structure:
 
 .. code-block:: shell
 
@@ -151,7 +151,7 @@ Examples of other viewers:
 Conclusions
 -----------
 
-This section introduced several ways to interact with pediatricIQphantom simulation tools and view the DICOM images produced by `run_batch_sim <https://pediatriciqphantoms.readthedocs.io/en/latest/api.html#pediatricIQphantoms.run_batch_sim>`_. 
+This section introduced several ways to interact with pediatricIQphantom simulation tools and view the DICOM images produced by `run_batch_sim <https://pediatriciqphantoms.readthedocs.io/en/latest/function_reference.html#pediatricIQphantoms.run_batch_sim>`_. 
 
 **Next** see the notebooks for practical examples `00_running_simulations.ipynb <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
 
