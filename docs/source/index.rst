@@ -61,7 +61,7 @@ The code block above does the following in 4 lines:
 
 This runs the `unit tests <https://github.com/DIDSR/pediatricIQphantoms/tree/main/tests>`_ to verify that installation was successful.
 
-**Running Notebooks*
+**Running Notebooks**
 
 To run the `computational notebooks <https://github.com/DIDSR/pediatricIQphantoms/tree/main/notebooks>`_ you will need to have `jupyter <https://jupyter.org/>`_ installed
 
