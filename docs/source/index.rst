@@ -69,8 +69,7 @@ To run the `computational notebooks <https://github.com/DIDSR/pediatricIQphantom
 
         conda install jupyterlab -y
 
-Users
------
+**After Installation**
 
 Check out the :doc:`usage` section for detailed information on customizing dataset running_simulations.
 

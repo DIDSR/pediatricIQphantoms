@@ -14,10 +14,10 @@ pediatricIQphantoms
     :scale: 100%
     :target: https://zenodo.org/doi/10.5281/zenodo.10064035
 
-.. |docs| image:: https://readthedocs.org/projects/docs/badge/?version=latest
+.. |docs| image:: https://readthedocs.org/projects/pediatriciqphantoms/badge/?version=latest
     :alt: Documentation Status
     :scale: 100%
-    :target: https://pediatriciqphantoms.readthedocs.io/en/latest/
+    :target: https://pediatriciqphantoms.readthedocs.io/en/latest/?badge=latest
 
 .. |tests| image:: https://github.com/DIDSR/pediatricIQphantoms/actions/workflows/python-package-conda.yml/badge.svg?branch=main
     :alt: Package Build and Testing Status
