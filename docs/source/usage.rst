@@ -14,8 +14,8 @@ Intended users are CT device developers and  image denoising and processing soft
 
 .. _LLZ: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPCD/classification.cfm?id=5654
 
-Examples
---------
+Command Line interface
+----------------------
 
 The quickest and simplest way to start generating new datasets with different parameters is using the command line interface tool `make_phantoms`  and modifying the provided configuration toml files. The examples below illustrate different scenarios that can be experimented with using the command line tool and config files.
 
