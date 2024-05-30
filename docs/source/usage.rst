@@ -126,7 +126,7 @@ The outputs of the simulation are `DICOM <https://en.wikipedia.org/wiki/DICOM>`_
 
 CSV files are output with each batched simulation which include file path and all relevant acquisition parameters, for example:
 
-.. csv-table:: Table Title
+.. csv-table:: Image metadata summary from batch mode simulations
    :file: metadata.csv
    :header-rows: 1
    
