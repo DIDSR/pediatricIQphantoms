@@ -143,7 +143,7 @@ class CTobj():
     
     def write_to_dicom(self, fname:str|Path, groundtruth=False) -> list[Path]:
         """
-            write ct data to DICOM file
+            write ct data to DICOM file, returns list of written dicom file names
 
             :param fname: filename to save image to (preferably with '.dcm` or related extension)
             :param groundtruth: Optional, whether to save the ground truth phantom image (no noise, blurring, or other artifacts).
@@ -338,7 +338,8 @@ def run_batch_sim(image_directory: str, model=['MITA-LCD'], diameter=[200], full
     """
         Running simulations in batch mode
 
-        `run_batch_sim` takes lists of parameters (phantoms, diameters, and dose levels) and iterates through all combinations
+        `run_batch_sim` takes lists of parameters (phantoms, diameters, and dose levels) and iterates through all combinations,
+        returns a pandas DataFrame summarizing file metadata including filename
 
         :param image_directory: Directory to save simulated outputs
         :type image_directory: str
