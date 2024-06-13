@@ -33,19 +33,21 @@ Features
 
 In addition, this repo contains examples of measurements using these digital image quality phantoms including:
 
-- `running simulations interactively with python <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
-- `viewing the simulated dataset <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_ 
-- `evaluating pediatric generalizability of denoisers <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_
+1. `running simulations interactively with python <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
+2. `viewing the simulated dataset <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_ 
+3. `evaluating pediatric generalizability of denoisers <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_
 
 .. image:: pediatric_subgroup_performance.png
         :width: 600
         :align: center
-        :caption: Example from the `uniform phantom denoising performance assessment notebook <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_ demonstrating the pediatric subgroup denoising performance of a `RED-CNN <https://ieeexplore.ieee.org/document/7947200/>`_ image-based deep learning denoiser using the `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_
+Example from the `uniform phantom denoising performance assessment notebook <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_ demonstrating the pediatric subgroup denoising performance of a `RED-CNN <https://ieeexplore.ieee.org/document/7947200/>`_ image-based deep learning denoiser using the `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_
 
-- `Command line usage for phantom creation and simulation <demo_01_phantom_creation.sh>`_
+4. `Command line usage for phantom creation and simulation <demo_01_phantom_creation.sh>`_
+
   - demonstrates command line usage including simulating different scanner configurations and acquisition protocols
   - run with `bash demo_01_phantom_creation.sh`
-- `Command line usage for more complex simulation experiments with changing acquisition parameters <demo_02_multiple_recon_kernels.sh>`_
+
+5. `Command line usage for more complex simulation experiments with changing acquisition parameters <demo_02_multiple_recon_kernels.sh>`_
 
 Start Here
 ----------
