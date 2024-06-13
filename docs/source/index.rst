@@ -63,11 +63,28 @@ This runs the `unit tests <https://github.com/DIDSR/pediatricIQphantoms/tree/mai
 
 **Running Notebooks**
 
-To run the `computational notebooks <https://github.com/DIDSR/pediatricIQphantoms/tree/main/notebooks>`_ you will need to have `jupyter <https://jupyter.org/>`_ installed
+Example `computational notebooks <https://github.com/DIDSR/pediatricIQphantoms/tree/main/notebooks>`_ have been provided to demonstrate
+
+- `running simulations interactively with python <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/00_running_simulations.ipynb>`_
+- `viewing the simulated dataset <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/01_viewing_images.ipynb>`_ 
+- `evaluating pediatric generalizability of denoisers <https://github.com/DIDSR/pediatricIQphantoms/blob/main/notebooks/02_pediatric_denoising_evaluation.ipynb>`_
+
+To run these Notebooks you will need to have `jupyter <https://jupyter.org/>`_ installed
 
 .. code-block:: shell
 
         conda install jupyterlab -y
+
+**Running Shell Scripts**
+
+Example shell scripts and config files have been provided to demonstrate non-intertactive use of the tool to generate simulated datasets.
+
+- `Command line usage for phantom creation and simulation <demo_01_phantom_creation.sh>`_
+
+  - demonstrates command line usage including simulating different scanner configurations and acquisition protocols
+  - run with `bash demo_01_phantom_creation.sh`
+
+- `Command line usage for more complex simulation experiments with changing acquisition parameters <demo_02_multiple_recon_kernels.sh>`_
 
 **After Installation**
 
