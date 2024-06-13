@@ -1,5 +1,37 @@
 function res = ct_sim(phantom, patient_diameter, reference_diameter, relative_lesion_diameter, I0, nb, na, ds, sdd, sid, offset_s, down, has_bowtie, add_noise, aec_on, nx, fov, fbp_kernel, nsims)
-
+    % Run a CT simulation for a given `phantom` object
+    %
+    % :param phantom: phantom object to be scanned, options include ['CCT189', 'CTP404', 'Uniform']
+    % :param patient_diameter: effective diameter in mm.
+    % :param reference_diameter: Optional, reference effective diameter in mm for computing automatic exposure control (aec) noise index. 
+    %        For example if a 200 mm reference phantom has a noise level of 24 HU at I0=3e5, smaller phantoms will scale I0 to match that noise level.
+    %   Note this only applies if 'aec_on`=True.
+    % :param relative_lesion_diameter: bool | list | float | int, if False lesions scale with phantom size,
+    %        if model=='CTP404' lesion_diameter > 1 interpret as absolute diameter in mm,
+    %        if lesion_diameter < 1 interpret as scale relative to phantom diameter.
+    %        If model=='CCT189' a list of 4 diameters must be provided for the four inserts in contrast order 14, 7, 5, 3 HU.
+    %        (only applies for CCCT189 MITA and CTP404 phantoms)
+    % :param I0: float, fluence at the detector in the projection data for determining quantum noise
+    % The following parameters all belong to MIRT's `sino_geom`_, please see the MIRT documentation for more details
+    % :param nb: int, number of detector columns
+    % :param na: int, number of angular views in a rotation, 
+    % :param ds: detector column size in mm
+    % :param sdd: source-to-isocenter distance in mm
+    % :param sid: source-to-detector distance in mm
+    % :param offset_s: float, lateral shift of detector (1.25 = quarter pixel offset)
+    % :param down: downsampling, defaults to 1 but can be increased for faster run times for testing purposes
+    % Non-MIRT parameters
+    % :param has_bowtie: whether to add a patient fitting bowtie 
+    % :param aec_on: 'aec' = automatic exposure control, when `true`, it ensures constant noise levels for all
+    %        `patient_diameters` (see `reference_dose_level` for more info)
+    % :param nx: reconstructed matrix size in pixels (square, equal on both sides)
+    % :param fov: float, reconstructed field of view (FOV) units mm
+    % :param fbp_kernel: str, `hanning,xxx`, xxx = the cutoff frequency
+    %        see `fbp2_window.m in MIRT <https://github.com/JeffFessler/mirt/blob/main/fbp/fbp2_window.m>`_ for details.
+    %        E.g. 'hanning,2.05' approximates a sharp kernel D45 in Siemens Force and 'hanning, 0.85' approximates a smooth kernel B30.
+    % :param nsims: int, number of simulations to perform with different noise instantiations
+    % .. sino_geom: https://github.com/JeffFessler/mirt/blob/d5685692254247ecac42e6e7dbef328af0a812d5/fbp/sino_geom.m#L17>`_
+  
     warning('off', 'all');
     if ~exist('mirt-main', 'dir')
         unzip('https://github.com/JeffFessler/mirt/archive/refs/heads/main.zip', '.');

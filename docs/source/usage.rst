@@ -85,7 +85,7 @@ Finally by the fourth we repeat the previous simulation but with the second kern
 
     fbp_kernel = 'hanning,0.85'
 
-This is done in parsing the config files using the python `dict update method <https://docs.python.org/3/library/stdtypes.html?highlight=dict%20update#dict.update>`_ https://github.com/DIDSR/pediatricIQphantoms/blob/62a45930053502e8e9982af4b521fdd4eee314ed/make_phantoms.py#L56
+This is done in parsing the config files using the python `dict update method <https://docs.python.org/3/library/stdtypes.html?highlight=dict%20update#dict.update>`_ :py:func:`pediatricIQphantoms.make_phantoms`
 
 - Reproducing the `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_
 
@@ -95,7 +95,7 @@ This is done in parsing the config files using the python `dict update method <h
 
     make_phantoms configs/pediatricIQphantoms.toml
 
-Note that this example of the executable `make_phantoms` that is installed and added to your python after installing the `pediatricIQphantoms <https://github.com/DIDSR/pediatricIQphantoms>`_ python package (see `install instructions <https://pediatriciqphantoms.readthedocs.io/en/latest/index.html>`_ for details)
+Note that this example of the executable `make_phantoms` that is installed and added to your python after installing the `pediatricIQphantoms <https://github.com/DIDSR/pediatricIQphantoms>`_ python package (see `install instructions <https://pediatriciqphantoms.readthedocs.io/en/latest/index.html#installation>`_ for details)
 
 Viewing images
 --------------

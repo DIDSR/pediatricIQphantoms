@@ -94,7 +94,7 @@ To run the `computational notebooks <https://github.com/DIDSR/pediatricIQphantom
 How to use this repo and the Pediatric IQ Phantoms
 --------------------------------------------------
 
-**pediatricIQphantoms** provides examples for how to use the pediatric IQ phantoms, (available to download and use directly from `Zenodo <https://zenodo.org/doi/10.5281/zenodo.10064035>`_) or generate new phantom instances using the provided `phantom generation functions <src/pediatricIQphantoms/make_phantoms.py>`_.
+**pediatricIQphantoms `Documentation`_** provides further details on the `rationale <https://pediatriciqphantoms.readthedocs.io/en/latest/usage.html#intended-purpose>`_, usage, and examples for how to use the pediatric IQ phantoms, (available to download and use directly from `Zenodo <https://zenodo.org/doi/10.5281/zenodo.10064035>`_) or generate new phantom instances using the provided `phantom generation functions <src/pediatricIQphantoms/make_phantoms.py>`_.
 
 Several examples are provided on how to use these functions:
 
@@ -114,8 +114,12 @@ Contribute
 Support
 -------
 
+For questions that cannot be addressed in the supporting `Documentation`_
+
 If you are having issues, please let us know.
 `brandon.nelson@fda.hhs.gov <mailto:brandon.nelson@fda.hhs.gov>`_; `rongping.zeng@fda.hhs.gov <rongping.zeng@fda.hhs.gov>`_
+
+.. _Documentation: https://pediatriciqphantoms.readthedocs.io/en/latest/
 
 Disclaimer
 ----------

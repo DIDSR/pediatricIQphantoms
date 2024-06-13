@@ -20,7 +20,7 @@ class CTobj():
     """
         A class to hold CT simulation data and run simulations
 
-        :param phantom: phantom object to be scanned, options include ['CCT189', 'CTP404']
+        :param phantom: phantom object to be scanned, options include ['CCT189', 'CTP404', 'Uniform']
         :param patient_diameter: Optional, effective diameter in mm.
             See `AAPM TG220 <https://www.aapm.org/pubs/reports/detail.asp?docid=146>`_ for more details.
         :param reference_diameter: Optional, reference effective diameter in mm for computing automatic exposure control (aec) noise index.
@@ -238,7 +238,8 @@ def mirt_sim(phantom='CCT189', patient_diameter=200, reference_diameter=200, ref
 
         :returns: dict with keys for recon, projection data, ground truth recon.
     """
-    if phantom in ['MITA-LCD', 'MITA', 'MITALCD', 'LCD']: phantom = 'CCT189'
+    if phantom in ['MITA-LCD', 'MITA', 'MITALCD', 'LCD']:
+        phantom = 'CCT189'
 
     if patient_diameter == reference_diameter:
         fov = reference_fov
@@ -405,4 +406,5 @@ def main():
         sim.update(c)
         run_batch_sim(**sim)
 
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()
