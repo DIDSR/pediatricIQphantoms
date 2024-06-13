@@ -105,7 +105,7 @@ How to use this repo and the Pediatric IQ Phantoms
 
 Several examples are provided on how to use these functions:
 
-- Check out the :doc:`usage` section for detailed information on customizing dataset running_simulations.
+- Check out the `usage <https://pediatriciqphantoms.readthedocs.io/en/latest/usage.html>`_ section for detailed information on customizing dataset running_simulations.
 - See the `tests directory <tests>`_ for simple script examples
 - `Computational notebooks <https://github.com/DIDSR/pediatricIQphantoms/tree/main/notebooks>`_ have also been provided to demonstrate how to use `pediatricIQphantoms dataset <https://zenodo.org/doi/10.5281/zenodo.10064035>`_ including:
 
