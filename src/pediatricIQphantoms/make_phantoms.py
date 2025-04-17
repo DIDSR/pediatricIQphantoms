@@ -369,7 +369,7 @@ def run_batch_sim(image_directory: str, model=['MITA-LCD'], diameter=[200], full
             for studyid, dose in enumerate(dose_level):
                 rel_dose = 100*dose/dose_level.max()
                 studyname = f'{int(rel_dose)}% dose'
-                ct = CTobj(patient_diameter=patient_diameter, reference_fov=reference_fov,
+                ct = CTobj(phantom=phantom, patient_diameter=patient_diameter, reference_fov=reference_fov,
                            I0=dose, down_sampling=1, patientname=patientname, patientid=patientid, studyname=studyname, studyid=studyid, seriesname=f'{patientname} {studyname}', **kwargs)
                 ct.run(verbose=verbose)
                 fname = image_directory / phantom / f'diameter{patient_diameter}mm' / f'dose_{int(rel_dose):03d}' / f"{recon} {fbp_kernel.replace(',','').replace('.','')}" / f'{ct.patientname}.dcm'
