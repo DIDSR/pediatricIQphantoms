@@ -9,7 +9,7 @@ import tomli
 import numpy as np
 import os
 
-from oct2py import octave
+# from oct2py import octave
 import pandas as pd
 import pydicom
 from datetime import datetime
@@ -223,14 +223,63 @@ class CTobj():
             ds.ImagePositionPatient[0] = -ds.Rows//2*ds.PixelSpacing[0]
             ds.ImagePositionPatient[1] = -ds.Columns//2*ds.PixelSpacing[1]
             ds.ImagePositionPatient[2] = ds.SliceLocation
-            ds.PixelData = array_slice.copy(order='C').astype('int16') - int(ds.RescaleIntercept)
+            ds.PixelData = (array_slice.copy(order='C').astype('int16') - int(ds.RescaleIntercept)).tobytes()
             dcm_fname = fname.parent / f'{fname.stem}_{slice_idx:03d}{fname.suffix}' if nslices > 1 else fname
             fnames.append(dcm_fname)
-            pydicom.write_file(dcm_fname, ds)
+            pydicom.dcmwrite(dcm_fname, ds)
         return fnames
 
 
+
+def get_octave_session():
+    """
+    Lazy-load Octave session to avoid import-time hangs.
+    """
+    try:
+        # Force oct2py to use the octave binary in the same environment as python
+        # This prevents it from picking up a system octave which might be incompatible (e.g. 10.3.0 vs 8.4.0)
+        import os
+        import sys
+        
+        # Try to find system octave first, as the conda env one (10.x) appears broken with oct2py
+        # and checking /usr/bin/octave (8.x) showed success.
+        
+        system_octave = "/usr/bin/octave"
+        if os.path.exists(system_octave):
+             os.environ['OCTAVE_EXECUTABLE'] = system_octave
+             # We don't need to update PATH for oct2py if OCTAVE_EXECUTABLE is set,
+             # but it might help if octave calls subprocesses.
+             # However, let's trust oct2py to handle the executable.
+        else:
+             # Fallback to env octave if system not found
+             if 'OCTAVE_EXECUTABLE' not in os.environ:
+                 bin_dir = os.path.dirname(sys.executable)
+                 octave_path = os.path.join(bin_dir, 'octave')
+                 if os.path.exists(octave_path):
+                     os.environ['OCTAVE_EXECUTABLE'] = octave_path
+
+        
+        from oct2py import octave
+        # Check if engine is already ready
+        if octave._engine:
+            return octave
+            
+        return octave
+    except (Exception, KeyboardInterrupt) as e:
+        print("\n\033[91mCRITICAL ERROR: Failed to initialize Octave session.\033[0m")
+        print("The process might have hung or been interrupted.")
+        print("This often happens if there are zombie Octave processes from previous runs.")
+        print("Try running the following command to clean up:")
+        print("  \033[1mpkill -u $USER octave\033[0m\n")
+        
+        # Re-raise to ensure the program exits
+        if isinstance(e, KeyboardInterrupt):
+            raise e
+        raise e
+
+
 def mirt_sim(phantom='CCT189', patient_diameter=200, reference_diameter=200, reference_fov=340,
+
              I0=3e5, nb=900, na=580, ds=1, sid=595, sdd=1085.6, offset_s=1.25, down=1, has_bowtie=False,
              add_noise=True, aec_on=True, nx=512, fov=340, fbp_kernel='hanning,2.05', nsims=1, lesion_diameter=False, verbose=True) -> dict:
     """
@@ -252,6 +301,7 @@ def mirt_sim(phantom='CCT189', patient_diameter=200, reference_diameter=200, ref
         if (phantom == 'CCT189') & (len(lesion_diameter) != 4):
             raise ValueError(f'CCT189 phantom expects a length 4 list of ints or floats, but {len(lesion_diameter)} != 4, found: {lesion_diameter}')
     curdir = os.path.dirname(os.path.realpath(__file__))
+    octave = get_octave_session()
     octave.cd(curdir)
     if verbose:
         return octave.ct_sim(phantom, patient_diameter, reference_diameter,    lesion_diameter, I0, nb, na, ds, sdd, sid, offset_s, down, has_bowtie, add_noise, aec_on, nx, fov, fbp_kernel, nsims)
@@ -313,7 +363,7 @@ def dicom_meta_to_dataframe(fname:str|Path) -> pd.DataFrame:
     Takes dicom header information and exports to pandas Dataframe
     """
     fname = Path(fname)
-    dcm = pydicom.read_file(fname)
+    dcm = pydicom.dcmread(fname)
     subgroup = pediatric_subgroup(18.2)
     age_est = subgroup_to_age(subgroup)
     subgroup, age_est
